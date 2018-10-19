@@ -33,7 +33,7 @@ public class ArrayQueue {
         return len ;
     }    
     /*  Function to check the front element of the queue */
-    public int peek() 
+    int peek() 
     {
         if (isEmpty())
            throw new NoSuchElementException("Underflow Exception");
