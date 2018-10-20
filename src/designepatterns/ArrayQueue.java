@@ -3,7 +3,7 @@ package designepatterns;
 import java.util.NoSuchElementException;
 
 public class ArrayQueue {
-	//kripa
+	//kripa S
 
     protected int Queue[] ;
     protected int front, rear, size, len;
