@@ -40,6 +40,14 @@ public class MazzeTest {
 			if (isAnyPath(maze, x, y + 1)) {
 				return true;
 			}
+			
+//			if (isAnyPath(maze, x-1, y)) {
+//				return true;
+//			}
+//			
+//			if (isAnyPath(maze, x, y - 1)) {
+//				return true;
+//			}
 
 			return false;
 		}
@@ -49,10 +57,13 @@ public class MazzeTest {
 
 	public static void main(String args[]) {
 		MazzeTest test = new MazzeTest();
-		String maze[][] = { { "O", "O", "O", "O", "O", "X", "O" }, { "X", "X", "O", "X", "O", "O", "X" },
-				{ "O", "X", "O", "O", "X", "X", "X" }, { "X", "X", "X", "O", "O", "X", "O" },
-				{ "X", "X", "X", "X", "O", "O", "X" }, { "O", "O", "O", "O", "O", "O", "O" },
-				{ "X", "X", "O", "X", "X", "X", "O" } };
+		String maze[][] = { { "O", "O", "O", "O", "O", "X", "O" },
+							{ "X", "X", "O", "X", "O", "O", "X" },
+							{ "O", "X", "O", "O", "X", "X", "X" },
+							{ "X", "X", "X", "O", "O", "X", "O" },
+							{ "X", "X", "X", "X", "X", "O", "X" },
+							{ "O", "O", "O", "O", "O", "O", "O" },
+							{ "X", "X", "O", "X", "X", "X", "O" } };
 		test.findPath(maze);
 	}
 }

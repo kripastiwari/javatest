@@ -4,7 +4,7 @@ public class StringTest {
 
 	public static void main(String[] args) {
 
-		String string = "ram shyam mohan sohan";
+		String string = "ram||shyam||mohan||sohan";
 
 /*		if (string.indexOf(",") == -1) {
 
@@ -12,11 +12,11 @@ public class StringTest {
 
 		}*/
 
-		String[] names = string.split(" ");
+		String[] names = string.split("\\|\\|");
 
 		for (String name : names)
 
-			System.out.println(names[0].toString());
+			System.out.println(name.toString());
 
 	}
 

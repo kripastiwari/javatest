@@ -4,16 +4,25 @@ package test;
 backtracking */
 
 public class RatMaze {
-	final int N = 6;
+	final int N = 7;
 
 	/*
 	 * A utility function to print solution matrix sol[N][N]
 	 */
-	void printSolution(int sol[][]) {
+	void printPath(int path[][]) {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++)
-				System.out.print(" " + sol[i][j] + " ");
-			System.out.println();
+
+				if (path[i][j] == 1) {
+
+					System.out.print("{ " + i + "," + j + "}");
+
+					if (!((i == (N - 1)) && (j == (N - 1))))
+						System.out.print("->");
+				}
+
+			// System.out.print(" " + sol[i][j] + " ");
+			// System.out.println();
 		}
 	}
 
@@ -33,15 +42,15 @@ public class RatMaze {
 	 * the feasible solutions.
 	 */
 	boolean solveMaze(int maze[][]) {
-		int sol[][] = { { 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0 },
+		int path[][] = { { 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0 },
 				{ 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0 } };
 
-		if (solveMazeUtil(maze, 0, 0, sol) == false) {
+		if (solveMazeUtil(maze, 0, 0, path) == false) {
 			System.out.print("Solution doesn't exist");
 			return false;
 		}
 
-		printSolution(sol);
+		//printPath(path);
 		return true;
 	}
 
@@ -52,6 +61,7 @@ public class RatMaze {
 		// if (x,y is goal) return true
 		if (x == N - 1 && y == N - 1) {
 			sol[x][y] = 1;
+			System.out.print("{ " + x + "," + y + "}");
 			return true;
 		}
 
@@ -59,6 +69,7 @@ public class RatMaze {
 		if (isSafe(maze, x, y) == true) {
 			// mark x,y as part of solution path
 			sol[x][y] = 1;
+			System.out.print("( " + x + "," + y + ") -> ");
 
 			/* Move forward in x direction */
 			if (solveMazeUtil(maze, x + 1, y, sol))
@@ -84,7 +95,7 @@ public class RatMaze {
 	public static void main(String args[]) {
 		RatMaze rat = new RatMaze();
 		int maze[][] = { { 1, 1, 1, 1, 1, 0, 1 }, { 0, 0, 1, 0, 1, 1, 0 }, { 1, 0, 1, 1, 0, 0, 0 },
-				{ 0, 0, 0, 1, 1, 0, 1 }, { 0, 0, 0, 0, 1, 1, 0 }, { 1, 1, 1, 1, 1, 1, 1 }, { 0, 0, 1, 0, 0, 0, 1 } };
+				{ 0, 0, 0, 1, 1, 0, 1 }, { 0, 0, 0, 0, 1, 1, 0 }, { 1, 1, 1, 1, 0, 0, 0 }, { 0, 0, 1, 0, 0, 0, 0 } };
 		rat.solveMaze(maze);
 	}
 }

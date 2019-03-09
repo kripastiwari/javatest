@@ -3,14 +3,14 @@ package test;
 public class Node<E> {
 
 	protected E data;
-	protected Node<E> link;
+	protected Node<E> next;
 
 	public Node() {
 	}
 
 	public Node(E data, Node<E> n) {
 		this.data = data;
-		link = n;
+		next = n;
 	}
 
 	public E getData() {
@@ -22,11 +22,11 @@ public class Node<E> {
 	}
 
 	public Node<E> getLink() {
-		return link;
+		return next;
 	}
 
 	public void setLink(Node<E> link) {
-		this.link = link;
+		this.next = link;
 	}
 
 }
