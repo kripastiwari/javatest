@@ -15,8 +15,7 @@ public class ArrayTest {
 	}
 
 	public static void reverseArrayElement(int[] arr) {
-		int size = arr.length;
-		int rev[] = new int[size];
+		int rev[] = new int[arr.length];
 		for (int i = 0; i <= rev.length - 1; i++) {
 			rev[i] = arr[(rev.length - 1) - i];
 		}
