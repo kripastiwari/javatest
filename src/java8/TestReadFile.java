@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 
 public class TestReadFile {
 	
-	public static void main(String args[]) {
+	public static void main(String args[]) throws Exception {
 
-		String fileName = "C:\\Users\\TIKRIPA\\Desktop\\npp@@\\Test.txt";
+		String fileName = "C:\\Users\\KRIPA\\Desktop\\k.txt";
 		List<String> list = new ArrayList<>();
 		
-		//read file into stream, try-with-resources
+		//read file into stream, try-with-resourcess
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 			
 			list = stream
@@ -28,6 +28,11 @@ public class TestReadFile {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally {
+			
+			// throw new Exception(); 
+			 System.out.println("in finally");
+			
 		}
 
 	}
